@@ -1,7 +1,8 @@
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { Raleway, Inter, Poppins, Montserrat } from "next/font/google";
-import Navbar from "@/components/GlobalComponents/Navbar";
+import Navbar from "@/components/GlobalComponents/navbar";
+import Footer from "@/components/GlobalComponents/footer";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
