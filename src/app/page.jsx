@@ -1,11 +1,13 @@
 import React from "react";
-import HeroSection from "@/components/sections/HeroSection";
+import HeroSection from "@/components/sections/hero-section";
+import FeaturesSection from "@/components/sections/features-section";
 
 function Main() {
   return (
     <>
       <div>
         <HeroSection />
+        <FeaturesSection />
       </div>
     </>
   );
