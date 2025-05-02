@@ -6,6 +6,7 @@ import metal from "./METAL.jpg";
 import user from "./user.jpg";
 import nfcMockup from "./nfc-mockup.png";
 import mockupAnimation from "./mockupAnimation.gif";
+import userBlank from "./user.png";
 
 const assets = {
   logo,
@@ -16,6 +17,7 @@ const assets = {
   user,
   nfcMockup,
   mockupAnimation,
+  userBlank,
 };
 
 export default assets;

@@ -3,6 +3,7 @@ import HeroSection from "@/components/sections/hero-section";
 import FeaturesSection from "@/components/sections/features-section";
 import ProductShowcase from "@/components/sections/product-showcase";
 import HowItWorks from "@/components/sections/how-it-works";
+import Testimonials from "@/components/sections/testimonials";
 
 function Main() {
   return (
@@ -12,6 +13,7 @@ function Main() {
         <FeaturesSection />
         <ProductShowcase />
         <HowItWorks />
+        <Testimonials />
       </div>
     </>
   );
