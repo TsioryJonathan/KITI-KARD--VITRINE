@@ -2,45 +2,9 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import assets from "../../../public/images/assets";
+import { materials } from "@/constants/product";
 
 export default function ProductShowcase() {
-  const materials = [
-    {
-      id: "metal",
-      name: "Premium Metal",
-      description:
-        "Durable stainless steel with laser engraving for a sophisticated, premium feel.",
-      features: [
-        "Waterproof",
-        "Scratch Resistant",
-        "Premium Weight",
-        "Laser Engraved",
-      ],
-      image: assets.metal,
-    },
-    {
-      id: "wood",
-      name: "Natural Wood",
-      description:
-        "Sustainably sourced wood with elegant engraving for an eco-friendly option.",
-      features: ["Eco-Friendly", "Unique Grain", "Lightweight", "Natural Feel"],
-      image: assets.bois,
-    },
-    {
-      id: "plastic",
-      name: "Composite Plastic",
-      description:
-        "Durable plastic cards with full-color printing for vibrant, detailed designs.",
-      features: [
-        "Affordable",
-        "Full-Color Printing",
-        "Flexible",
-        "Weather Resistant",
-      ],
-      image: assets.pvc,
-    },
-  ];
-
   return (
     <section className="w-full py-16 md:py-24">
       <div className="container px-4 md:px-6">
@@ -57,7 +21,7 @@ export default function ProductShowcase() {
         </div>
 
         <Tabs defaultValue="metal" className="mt-12">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-3">
+          <TabsList className="grid w-full gap-2 grid-cols-1 md:grid-cols-3 mb-12">
             {materials.map((material) => (
               <TabsTrigger
                 key={material.id}
