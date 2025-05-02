@@ -1,12 +1,12 @@
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Quicksand } from "next/font/google";
+import { Raleway } from "next/font/google";
 import Navbar from "@/components/GlobalComponents/Navbar";
 
-const quicksand = Quicksand({
+const raleway = Raleway({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-quicksand",
+  variable: "--font-raleway",
   display: "swap",
 });
 export const metadata = {
@@ -17,7 +17,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={quicksand.className} suppressHydrationWarning>
+    <html lang="fr" className={raleway.className} suppressHydrationWarning>
       <head>
         <link
           href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css"

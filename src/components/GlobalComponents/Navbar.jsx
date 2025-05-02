@@ -1,14 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
-import {
-  ShoppingCart,
-  User,
-  Menu,
-  CreditCard,
-  ChevronDown,
-} from "lucide-react";
+import links from "@/constants/sidebarLinks";
+import Image from "next/image";
+import { ShoppingCart, User, Menu, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -24,71 +19,36 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
-import { Badge } from "@/components/ui/badge";
 import { ThemeToggle } from "@/components/theme-toggle";
+import assets from "../../../public/images/assets";
+import navLinks from "@/constants/navLinks";
+import clsx from "clsx";
 
 export default function Navbar() {
-  const [cartItemCount, setCartItemCount] = useState(0);
-
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b  backdrop-blur bg-navbar supports-[backdrop-filter]:bg-background/60 px-10">
+      <div className="flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <CreditCard className="h-6 w-6" />
-          <span>NFC Carte</span>
+          <Image
+            src={assets.logo}
+            alt="KITI'KARD LOGO"
+            className="w-16 h-full"
+          ></Image>
+          <span>KITI'KARD</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link
-            href="/"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Home
-          </Link>
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="link" className="text-sm font-medium p-0 h-auto">
-                Products <ChevronDown className="h-4 w-4 ml-1" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="center">
-              <DropdownMenuItem asChild>
-                <Link href="/products/business">Business Cards</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/products/premium">Premium Collection</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem asChild>
-                <Link href="/products/custom">Custom Designs</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <Link
-            href="/how-it-works"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            How It Works
-          </Link>
-          <Link
-            href="/pricing"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Pricing
-          </Link>
-          <Link
-            href="/about"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            About
-          </Link>
-          <Link
-            href="/contact"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Contact
-          </Link>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium hover:text-gray-400 transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         {/* Right side actions */}
@@ -97,14 +57,6 @@ export default function Navbar() {
           {/* Cart */}
           <Link href="/cart" className="relative">
             <ShoppingCart className="h-5 w-5" />
-            {cartItemCount > 0 && (
-              <Badge
-                variant="destructive"
-                className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0 text-xs"
-              >
-                {cartItemCount}
-              </Badge>
-            )}
           </Link>
 
           {/* User Account - Desktop */}
@@ -138,75 +90,25 @@ export default function Navbar() {
             <SheetContent side="right">
               <SheetHeader>
                 <SheetTitle className="flex items-center gap-2">
-                  <CreditCard className="h-5 w-5" />
-                  <span>NFC Carte</span>
+                  <Image
+                    src={assets.logo}
+                    alt="KITI'KARD"
+                    className={clsx("w-10 h-full")}
+                  ></Image>
+                  <span>KITI'KARD</span>
                 </SheetTitle>
               </SheetHeader>
-              <nav className="flex flex-col gap-4 mt-8">
-                <SheetClose asChild>
-                  <Link
-                    href="/"
-                    className="flex py-2 text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    Home
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/products"
-                    className="flex py-2 text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    Products
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/how-it-works"
-                    className="flex py-2 text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    How It Works
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/pricing"
-                    className="flex py-2 text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    Pricing
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/about"
-                    className="flex py-2 text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    About
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/contact"
-                    className="flex py-2 text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/account"
-                    className="flex py-2 text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    My Account
-                  </Link>
-                </SheetClose>
-                <SheetClose asChild>
-                  <Link
-                    href="/login"
-                    className="flex py-2 text-sm font-medium hover:text-primary transition-colors"
-                  >
-                    Login / Register
-                  </Link>
-                </SheetClose>
+              <nav className="flex flex-col gap-2 ml-5">
+                {links.map((link) => (
+                  <SheetClose asChild key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="flex py-2 text-sm font-medium hover:text-gray-400 transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </SheetClose>
+                ))}
               </nav>
             </SheetContent>
           </Sheet>
