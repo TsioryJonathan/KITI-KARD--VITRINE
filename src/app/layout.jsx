@@ -1,6 +1,6 @@
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import { Raleway } from "next/font/google";
+import { Raleway, Inter, Poppins, Montserrat } from "next/font/google";
 import Navbar from "@/components/GlobalComponents/Navbar";
 
 const raleway = Raleway({
@@ -9,6 +9,26 @@ const raleway = Raleway({
   variable: "--font-raleway",
   display: "swap",
 });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-montserrat",
+  display: "swap",
+});
+
 export const metadata = {
   title: "KITI'KARD",
   description:
@@ -17,7 +37,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={raleway.className} suppressHydrationWarning>
+    <html lang="fr" className={poppins.className} suppressHydrationWarning>
       <head>
         <link
           href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css"
