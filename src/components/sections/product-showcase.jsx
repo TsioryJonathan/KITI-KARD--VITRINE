@@ -35,7 +35,7 @@ export default function ProductShowcase() {
           {materials.map((material) => (
             <TabsContent key={material.id} value={material.id} className="mt-6">
               <div className="grid gap-6 lg:grid-cols-2">
-                <div className="flex items-center justify-center py-16 overflow-hidden rounded-xl border border-muted">
+                <div className="flex items-center justify-center py-16 overflow-hidden rounded-xl border border-muted bg-primary/10">
                   <Image
                     src={material.image}
                     alt={material.name}
@@ -54,7 +54,7 @@ export default function ProductShowcase() {
                       <Badge
                         key={index}
                         variant="outline"
-                        className="justify-center py-2 w-full border border-white rounded-xl"
+                        className="justify-center py-2 w-full border border-text rounded-xl"
                       >
                         {feature}
                       </Badge>
