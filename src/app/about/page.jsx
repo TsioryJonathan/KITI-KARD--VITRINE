@@ -4,6 +4,7 @@ import StorySection from "@/components/sections/about/story-section";
 import MissionSection from "@/components/sections/about/mission-section";
 import ValueSection from "@/components/sections/about/value-section";
 import TeamSection from "@/components/sections/about/team-section";
+import WhyChooseUs from "@/components/sections/about/why-choose-us";
 
 export default function About() {
   return (
@@ -13,6 +14,7 @@ export default function About() {
       <MissionSection />
       <ValueSection />
       <TeamSection />
+      <WhyChooseUs />
     </div>
   );
 }

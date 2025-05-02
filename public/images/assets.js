@@ -7,7 +7,8 @@ import user from "./user.jpg";
 import nfcMockup from "./nfc-mockup.png";
 import mockupAnimation from "./mockupAnimation.gif";
 import userBlank from "./user.png";
-import illustration from './CARTES-SITE-2.jpg'
+import illustration from "./CARTES-SITE-2.jpg";
+import illustration2 from "./CARTES-SITE-3.jpg";
 
 const assets = {
   logo,
@@ -19,7 +20,8 @@ const assets = {
   nfcMockup,
   mockupAnimation,
   userBlank,
-  illustration
+  illustration,
+  illustration2,
 };
 
 export default assets;
