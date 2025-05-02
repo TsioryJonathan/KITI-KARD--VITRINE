@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import assets from "../../../public/images/assets";
+import assets from "../../../../public/images/assets";
 import { materials } from "@/constants/product";
 
 export default function ProductShowcase() {
