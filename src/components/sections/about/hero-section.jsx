@@ -9,7 +9,7 @@ export default function HeroSection() {
     <section className="bg-muted/30 py-16 md:py-24">
       <div className="px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
-          <div className="flex flex-col justify-center space-y-4">
+          <div className="flex flex-col justify-center items-center text-center md:text-left md:items-start space-y-4">
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
                 About KITI'KARD

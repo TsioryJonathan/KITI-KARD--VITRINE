@@ -18,7 +18,7 @@ export default function StorySection() {
             </div>
           </div>
           <div className="flex flex-col space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter">Our Story</h2>
+            <h2 className="text-3xl font-bold tracking-tighter text-center">Our Story</h2>
             <p className="text-muted-foreground">
               KITI'KARD was founded in 2024 with a simple mission: to
               revolutionize the way professionals connect and share information.

@@ -5,6 +5,7 @@ import MissionSection from "@/components/sections/about/mission-section";
 import ValueSection from "@/components/sections/about/value-section";
 import TeamSection from "@/components/sections/about/team-section";
 import WhyChooseUs from "@/components/sections/about/why-choose-us";
+import CtaSection from "@/components/sections/about/cta-section";
 
 export default function About() {
   return (
@@ -15,6 +16,7 @@ export default function About() {
       <ValueSection />
       <TeamSection />
       <WhyChooseUs />
+      <CtaSection />
     </div>
   );
 }
