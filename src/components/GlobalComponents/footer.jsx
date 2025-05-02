@@ -1,16 +1,16 @@
 import Link from "next/link";
 import {
-  CreditCard,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Twitter,
-} from "lucide-react";
+  IconBrandFacebook,
+  IconBrandTwitter,
+  IconBrandInstagram,
+  IconBrandLinkedin,
+} from "@tabler/icons-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import assets from "../../../public/images/assets";
 import { footerLinks } from "@/constants/footerLinks";
+import { socialLinks } from "@/constants/socialMediaLinks";
 
 export default function Footer() {
   return (
@@ -30,35 +30,16 @@ export default function Footer() {
               Modern business cards with NFC technology. Share your contact
               information with a simple tap.
             </p>
+
+            {/* SOCIAL MEDIA */}
             <div className="flex gap-2 mt-2">
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <Facebook className="h-5 w-5" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <Instagram className="h-5 w-5" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link
-                href="#"
-                className="text-muted-foreground hover:text-foreground"
-              >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
+              {socialLinks.map((link, index) => {
+                return (
+                  <Link href={link.href} className={link.class} key={index}>
+                    {link.icon}
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div className="grid gap-2">
