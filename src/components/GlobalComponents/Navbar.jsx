@@ -19,7 +19,7 @@ import {
   SheetTrigger,
   SheetClose,
 } from "@/components/ui/sheet";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import assets from "../../../public/images/assets";
 import navLinks from "@/constants/navLinks";
 import clsx from "clsx";

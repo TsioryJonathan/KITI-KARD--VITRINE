@@ -1,11 +1,11 @@
 import React from "react";
-import HeroSection from "@/components/sections/landing/hero-section";
-import FeaturesSection from "@/components/sections/landing/features-section";
-import ProductShowcase from "@/components/sections/landing/product-showcase";
-import HowItWorks from "@/components/sections/landing/how-it-works";
-import Testimonials from "@/components/sections/landing/testimonials";
-import PricingTable from "@/components/sections/landing/pricing-table";
-import ContactUsSection from "@/components/sections/landing/contact-us-section";
+import HeroSection from "@/components/sections/landing/HeroSection";
+import FeaturesSection from "@/components/sections/landing/FeaturesSection";
+import ProductShowcase from "@/components/sections/landing/ProductShowcase";
+import HowItWorks from "@/components/sections/landing/HowItWorks";
+import Testimonials from "@/components/sections/landing/Testimonials";
+import PricingTable from "@/components/sections/landing/PricingTable";
+import ContactUsSection from "@/components/sections/landing/ContactUsSection";
 
 function Main() {
   return (
