@@ -1,11 +1,11 @@
 import React from "react";
-import HeroSection from "@/components/sections/about/HeroSection";
-import StorySection from "@/components/sections/about/StorySection";
-import MissionSection from "@/components/sections/about/MissionSection";
-import ValueSection from "@/components/sections/about/ValueSection";
-import TeamSection from "@/components/sections/about/TeamSection";
-import WhyChooseUs from "@/components/sections/about/WhyChooseUs";
-import CtaSection from "@/components/sections/about/CTASection";
+import HeroSection from "@/components/pages/about/HeroSection";
+import StorySection from "@/components/pages/about/StorySection";
+import MissionSection from "@/components/pages/about/MissionSection";
+import ValueSection from "@/components/pages/about/ValueSection";
+import TeamSection from "@/components/pages/about/TeamSection";
+import WhyChooseUs from "@/components/pages/about/WhyChooseUs";
+import CtaSection from "@/components/pages/about/CTASection";
 
 export default function About() {
   return (
