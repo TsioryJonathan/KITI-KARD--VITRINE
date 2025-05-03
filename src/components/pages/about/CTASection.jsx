@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import clsx from "clsx";
 
-export default function CtaSection() {
+export default function CtaSection({ bgMuted }) {
   return (
-    <section className="py-16 md:py-24">
+    <section className={clsx(bgMuted ? "bg-muted/30" : "", "py-16 md:py-24")}>
       <div className="px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
