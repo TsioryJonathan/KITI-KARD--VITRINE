@@ -1,10 +1,4 @@
 import Link from "next/link";
-import {
-  IconBrandFacebook,
-  IconBrandTwitter,
-  IconBrandInstagram,
-  IconBrandLinkedin,
-} from "@tabler/icons-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
