@@ -1,8 +1,8 @@
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { Raleway, Inter, Poppins, Montserrat } from "next/font/google";
-import Navbar from "../components/GlobalComponents/Navbar";
-import Footer from "../components/GlobalComponents/Footer";
+import Navbar from "@/components/GlobalComponents/Navbar";
+import Footer from "@/components/GlobalComponents/Footer";
 
 const raleway = Raleway({
   subsets: ["latin"],
