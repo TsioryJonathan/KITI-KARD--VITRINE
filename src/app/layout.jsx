@@ -46,6 +46,10 @@ export default function RootLayout({ children }) {
         />
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
+        <meta
+          name="google-site-verification"
+          content="LMbpaCljXVF8_8TtEYfg0Mfc0GaLpRLWKl5hlp9uLtk"
+        />
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
