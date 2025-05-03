@@ -14,7 +14,7 @@ import { socialLinks } from "@/constants/socialMediaLinks";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t bg-muted/40 dark:bg-background/60">
+    <footer className="w-full border-t bg-muted/40 dark:bg-muted/30">
       <div className="px-4 md:px-6 py-12">
         <div className="grid gap-8 lg:grid-cols-2 xl:grid-cols-4">
           <div className="flex flex-col gap-2">

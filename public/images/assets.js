@@ -9,6 +9,10 @@ import mockupAnimation from "./mockupAnimation.gif";
 import userBlank from "./user.png";
 import illustration from "./CARTES-SITE-2.jpg";
 import illustration2 from "./CARTES-SITE-3.jpg";
+import step1 from "./step1.jpg";
+import step2 from "./step2.jpg";
+import step3 from "./step3.jpg";
+import step4 from "./step4.jpg";
 
 const assets = {
   logo,
@@ -22,6 +26,10 @@ const assets = {
   userBlank,
   illustration,
   illustration2,
+  step1,
+  step2,
+  step3,
+  step4,
 };
 
 export default assets;

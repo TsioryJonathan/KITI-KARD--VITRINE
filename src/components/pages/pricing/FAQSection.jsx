@@ -7,11 +7,11 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
-import { faqs } from "@/constants/faqs";
+import clsx from "clsx";
 
-export default function FAQSection() {
+export default function FAQSection({ faqCategory, bgMuted }) {
   return (
-    <section className="bg-muted/30 py-16 md:py-24">
+    <section className={clsx(bgMuted ? "bg-muted/30" : "", "py-16 md:py-24")}>
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
           <div className="space-y-2">
@@ -26,7 +26,7 @@ export default function FAQSection() {
 
         <div className="mx-auto max-w-3xl">
           <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
+            {faqCategory.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="text-left cursor-pointer">
                   {faq.question}
