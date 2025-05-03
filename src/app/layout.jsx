@@ -1,8 +1,8 @@
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme/theme-provider";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { Raleway, Inter, Poppins, Montserrat } from "next/font/google";
-import Navbar from "@/components/GlobalComponents/navbar";
-import Footer from "@/components/GlobalComponents/footer";
+import Navbar from "@/components/GlobalComponents/Navbar";
+import Footer from "@/components/GlobalComponents/Footer";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -38,7 +38,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={poppins.className} suppressHydrationWarning>
+    <html lang="fr" className={raleway.className} suppressHydrationWarning>
       <head>
         <link
           href="https://cdn.jsdelivr.net/npm/boxicons/css/boxicons.min.css"

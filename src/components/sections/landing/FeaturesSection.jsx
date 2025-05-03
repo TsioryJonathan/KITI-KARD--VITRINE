@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { features, additionalFeatures } from "@/constants/features";
 import Image from "next/image";
-import assets from "../../../public/images/assets";
+import assets from "../../../../public/images/assets";
 
 export default function FeaturesSection() {
   return (
