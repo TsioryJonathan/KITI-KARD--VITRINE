@@ -1,3 +1,5 @@
+"use client";
+
 import { ArrowRight, Smartphone, Share2, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -56,6 +58,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               className="gap-2 bg-foreground hover:bg-foreground/80 cursor-pointer font-semibold"
+              onClick={() => (window.location.href = "/products")}
             >
               Shop Now
               <ArrowRight className="h-4 w-4" />
@@ -64,6 +67,7 @@ const HeroSection = () => {
               size="lg"
               variant="outline"
               className="cursor-pointer font-semibold"
+              onClick={() => (window.location.href = "/how-it-works")}
             >
               How It Works ?
             </Button>

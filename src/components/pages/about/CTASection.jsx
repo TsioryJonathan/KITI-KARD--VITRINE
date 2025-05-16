@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -21,11 +23,12 @@ export default function CtaSection({ bgMuted }) {
             <Button
               size="lg"
               className="gap-2 bg-foreground hover:bg-foreground/80 cursor-pointer font-semibold"
+              onClick = {() => window.location.href = '/products'}
             >
               Shop Now
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" onClick = {() => window.location.href = '/contact'}>
               Contact Us
             </Button>
           </div>

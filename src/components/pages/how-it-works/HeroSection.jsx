@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
@@ -20,11 +22,12 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 className="gap-2 bg-foreground hover:bg-foreground/80 cursor-pointer font-semibold"
+                onClick = {() => window.location.href = '/products'}
               >
                 Get Started
                 <ArrowRight className="h-4 w-4" />
               </Button>
-              <Button size="lg" variant="outline" className="cursor-pointer">
+              <Button size="lg" variant="outline" className="cursor-pointer" onClick = {() => window.location.href = '/products'}>
                 View Products
               </Button>
             </div>
