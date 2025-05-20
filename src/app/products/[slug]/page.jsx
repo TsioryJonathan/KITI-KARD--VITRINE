@@ -427,7 +427,7 @@ export default function ProductPage() {
           {otherProducts.length > 0 && (
             <div className="mt-16">
               <h2 className="mb-8 text-2xl font-bold">You Might Also Like</h2>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 px-24">
                 {otherProducts.map((product) => (
                   <Link
                     key={product.id}
@@ -435,20 +435,21 @@ export default function ProductPage() {
                     className="group"
                   >
                     <Card className="overflow-hidden transition-all hover:shadow-md">
-                      <div className="relative aspect-video overflow-hidden">
+                      <div className="relative overflow-hidden flex items-center justify-center py-5">
                         <NextImage
                           src={product.images[0] || "/placeholder.svg"}
                           alt={product.name}
-                          fill
                           className="object-cover transition-transform group-hover:scale-105"
                         />
                         <div className="absolute left-2 top-2 flex flex-col gap-1">
                           {product.bestSeller && (
-                            <Badge className="bg-yellow-500 hover:bg-yellow-600">
+                            <Badge className="bg-yellow-500 hover:bg-yellow-600 text-text">
                               Best Seller
                             </Badge>
                           )}
-                          {product.new && <Badge>New</Badge>}
+                          {product.new && (
+                            <Badge className="text-text">New</Badge>
+                          )}
                         </div>
                       </div>
                       <CardContent className="p-4">
@@ -467,7 +468,9 @@ export default function ProductPage() {
                         </div>
                       </CardContent>
                       <CardFooter className="border-t p-4">
-                        <Button className="w-full">View Details</Button>
+                        <CustomButton className="w-full">
+                          View Details
+                        </CustomButton>
                       </CardFooter>
                     </Card>
                   </Link>
