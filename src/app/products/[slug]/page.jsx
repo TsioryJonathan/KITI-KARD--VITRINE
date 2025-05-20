@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { useParams } from "next/navigation";
 import { CardFooter } from "@/components/ui/card";
 import { CardContent } from "@/components/ui/card";
 import { Card } from "@/components/ui/card";
@@ -10,28 +12,27 @@ import {
   Minus,
   Plus,
   Share2,
-  ShoppingCart,
   Star,
 } from "lucide-react";
 import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
 import { ProductGallery } from "@/components/pages/products/ProductGallery";
 import NextImage from "next/image";
-import { useParams } from "next/navigation";
-import CustomButton from "@/components/CustomButton";
+import { AddToCartButton } from "@/components/pages/products/AddToCardButton";
 import { products } from "@/constants/individualProductInfo";
 
 export default function ProductPage() {
-  // Product data - in a real app, you would fetch this based on the slug
+  const [quantity, setQuantity] = useState(1);
+  const [selectedColor, setSelectedColor] = useState();
 
   // Get the product based on the slug
 
   const params = useParams();
-  const slug = params?.slug;
-  const product = products[slug];
+  const product = products[params.slug];
 
   // If product not found, you could redirect or show a not found page
   if (!product) {
@@ -48,15 +49,30 @@ export default function ProductPage() {
     );
   }
 
+  // Set default selected color if not set
+  if (!selectedColor && product.colors && product.colors.length > 0) {
+    setSelectedColor(product.colors[0].name);
+  }
+
   // Get the other products for the "You might also like" section
   const otherProducts = Object.values(products).filter(
     (p) => p.id !== product.id
   );
 
+  const decreaseQuantity = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const increaseQuantity = () => {
+    setQuantity(quantity + 1);
+  };
+
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
-        <div className="px-4 py-8 md:px-6 md:py-12">
+        <div className="container px-4 py-8 md:px-6 md:py-12">
           <div className="mb-6">
             <Link
               href="/products"
@@ -76,11 +92,11 @@ export default function ProductPage() {
               <div>
                 <div className="flex items-center gap-2">
                   {product.bestSeller && (
-                    <Badge className=" text-text bg-yellow-500 hover:bg-yellow-600">
+                    <Badge className="bg-yellow-500 hover:bg-yellow-600">
                       Best Seller
                     </Badge>
                   )}
-                  {product.new && <Badge className={"text-text"}>New</Badge>}
+                  {product.new && <Badge>New</Badge>}
                   <Badge
                     variant="outline"
                     className="text-emerald-500 border-emerald-200 dark:border-emerald-800"
@@ -134,13 +150,18 @@ export default function ProductPage() {
                   {product.colors.map((color) => (
                     <div key={color.name} className="text-center">
                       <button
-                        className="relative h-10 w-10 rounded-full border-2 border-muted focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer"
+                        className={`relative h-10 w-10 rounded-full border-2 ${
+                          selectedColor === color.name
+                            ? "border-primary"
+                            : "border-muted"
+                        } focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`}
                         style={{ backgroundColor: color.value }}
                         aria-label={`Select ${color.name} color`}
+                        onClick={() => setSelectedColor(color.name)}
                       >
                         <span className="sr-only">{color.name}</span>
                         <span className="absolute inset-0 flex items-center justify-center rounded-full">
-                          {color.name === product.colors[0].name && (
+                          {selectedColor === color.name && (
                             <Check
                               className={`h-4 w-4 ${
                                 color.name === "White"
@@ -163,17 +184,20 @@ export default function ProductPage() {
                   <Button
                     variant="outline"
                     size="icon"
-                    className="rounded-r-none cursor-pointer"
+                    className="rounded-r-none"
+                    onClick={decreaseQuantity}
+                    disabled={quantity <= 1}
                   >
                     <Minus className="h-4 w-4" />
                   </Button>
                   <div className="flex h-10 w-14 items-center justify-center border-y border-input bg-transparent text-sm">
-                    1
+                    {quantity}
                   </div>
                   <Button
                     variant="outline"
                     size="icon"
-                    className="rounded-l-none cursor-pointer"
+                    className="rounded-l-none"
+                    onClick={increaseQuantity}
                   >
                     <Plus className="h-4 w-4" />
                   </Button>
@@ -181,16 +205,14 @@ export default function ProductPage() {
               </div>
 
               <div className="flex flex-col gap-3 sm:flex-row">
-                <CustomButton className="flex-1 gap-2 cursor-pointer font-bold">
-                  <ShoppingCart className="h-5 w-5" />
-                  Add to Cart
-                </CustomButton>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="gap-2 cursor-pointer"
-                >
-                  <Share2 className="h-5 w-5 cursor-pointer" />
+                <AddToCartButton
+                  product={product}
+                  quantity={quantity}
+                  selectedColor={selectedColor}
+                  className="flex-1"
+                />
+                <Button variant="outline" size="lg" className="gap-2">
+                  <Share2 className="h-5 w-5" />
                   Share
                 </Button>
               </div>
@@ -212,7 +234,7 @@ export default function ProductPage() {
               <div className="rounded-lg bg-muted p-4">
                 <div className="flex items-center gap-3">
                   <div className="rounded-full bg-primary/10 p-2">
-                    <CreditCard className="h-5 w-5 text-text" />
+                    <CreditCard className="h-5 w-5 text-primary" />
                   </div>
                   <div>
                     <h4 className="font-medium">Free Digital Profile</h4>
@@ -324,7 +346,7 @@ export default function ProductPage() {
           {otherProducts.length > 0 && (
             <div className="mt-16">
               <h2 className="mb-8 text-2xl font-bold">You Might Also Like</h2>
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 px-24">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {otherProducts.map((product) => (
                   <Link
                     key={product.id}
@@ -332,21 +354,20 @@ export default function ProductPage() {
                     className="group"
                   >
                     <Card className="overflow-hidden transition-all hover:shadow-md">
-                      <div className="relative overflow-hidden flex items-center justify-center py-5">
+                      <div className="relative aspect-video overflow-hidden">
                         <NextImage
                           src={product.images[0] || "/placeholder.svg"}
                           alt={product.name}
+                          fill
                           className="object-cover transition-transform group-hover:scale-105"
                         />
                         <div className="absolute left-2 top-2 flex flex-col gap-1">
                           {product.bestSeller && (
-                            <Badge className="bg-yellow-500 hover:bg-yellow-600 text-text">
+                            <Badge className="bg-yellow-500 hover:bg-yellow-600">
                               Best Seller
                             </Badge>
                           )}
-                          {product.new && (
-                            <Badge className="text-text">New</Badge>
-                          )}
+                          {product.new && <Badge>New</Badge>}
                         </div>
                       </div>
                       <CardContent className="p-4">
@@ -365,9 +386,7 @@ export default function ProductPage() {
                         </div>
                       </CardContent>
                       <CardFooter className="border-t p-4">
-                        <CustomButton className="w-full">
-                          View Details
-                        </CustomButton>
+                        <Button className="w-full">View Details</Button>
                       </CardFooter>
                     </Card>
                   </Link>
@@ -382,9 +401,9 @@ export default function ProductPage() {
               We offer custom designs and bulk orders for businesses. Contact us
               to discuss your specific requirements.
             </p>
-            <CustomButton size="lg" asChild>
+            <Button size="lg" asChild>
               <Link href="/contact">Contact Sales</Link>
-            </CustomButton>
+            </Button>
           </div>
         </div>
       </main>
