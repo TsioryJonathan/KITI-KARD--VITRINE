@@ -23,6 +23,7 @@ import { ThemeToggle } from "@/components/theme/ThemeToggle";
 import assets from "../../../public/images/assets";
 import navLinks from "@/constants/navLinks";
 import clsx from "clsx";
+import { CartIcon } from "./CartIcon";
 
 export default function Navbar() {
   return (
@@ -55,9 +56,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           {/* Cart */}
-          <Link href="/cart" className="relative">
-            <ShoppingCart className="h-5 w-5" />
-          </Link>
+          <CartIcon />
 
           {/* User Account - Desktop */}
           <DropdownMenu>

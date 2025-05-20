@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { Raleway, Inter, Poppins, Montserrat } from "next/font/google";
 import Navbar from "@/components/GlobalComponents/Navbar";
 import Footer from "@/components/GlobalComponents/Footer";
+import { CartProvider } from "@/context/CartContext";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -54,9 +55,11 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ThemeProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <CartProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </CartProvider>
         </ThemeProvider>
       </body>
     </html>
