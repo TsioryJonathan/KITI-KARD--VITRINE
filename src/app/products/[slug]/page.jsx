@@ -21,114 +21,11 @@ import { Badge } from "@/components/ui/badge";
 import { ProductGallery } from "@/components/pages/products/ProductGallery";
 import NextImage from "next/image";
 import { useParams } from "next/navigation";
-import assets from "../../../../public/images/assets";
 import CustomButton from "@/components/CustomButton";
+import { products } from "@/constants/individualProductInfo";
 
 export default function ProductPage() {
   // Product data - in a real app, you would fetch this based on the slug
-  const products = {
-    "premium-metal": {
-      id: "premium-metal",
-      name: "Premium Metal NFC Business Card",
-      slug: "premium-metal",
-      price: 99,
-      originalPrice: 129,
-      rating: 4.9,
-      reviewCount: 124,
-      description:
-        "Our Premium Metal NFC Business Card combines sophisticated design with cutting-edge technology. Made from high-quality stainless steel with precision laser engraving, this card makes a lasting impression while allowing you to share your contact information with a simple tap.",
-      features: [
-        "Premium stainless steel construction",
-        "Laser engraved personalization",
-        "NFC chip with 144 bytes of memory",
-        "No battery required",
-        "Waterproof and scratch resistant",
-        "Works with all modern smartphones",
-        "Includes digital profile management",
-        "Free shipping",
-      ],
-      images: [assets.metal, assets.metal, assets.metal],
-      colors: [
-        { name: "Silver", value: "#C0C0C0" },
-        { name: "Gold", value: "#FFD700" },
-        { name: "Black", value: "#000000" },
-      ],
-      inStock: true,
-      material: "Metal",
-      dimensions: "85.60 × 53.98 mm (standard credit card size)",
-      thickness: "0.8mm",
-      weight: "6g",
-      bestSeller: true,
-    },
-    "wood-finish": {
-      id: "wood-finish",
-      name: "Wood Finish NFC Business Card",
-      slug: "wood-finish",
-      price: 79,
-      originalPrice: 99,
-      rating: 4.7,
-      reviewCount: 86,
-      description:
-        "Our Wood Finish NFC Business Card combines natural elegance with modern technology. Each card is crafted from sustainable wood with a beautiful grain pattern, making every card unique. Share your contact information with a simple tap while making an eco-friendly statement.",
-      features: [
-        "Sustainable wood construction",
-        "Unique natural grain patterns",
-        "Laser engraved personalization",
-        "NFC chip with 144 bytes of memory",
-        "No battery required",
-        "Works with all modern smartphones",
-        "Includes digital profile management",
-        "Free shipping",
-      ],
-      images: [assets.bois, assets.bois, assets.bois],
-      colors: [
-        { name: "Maple", value: "#E4D4A7" },
-        { name: "Walnut", value: "#5C4033" },
-        { name: "Cherry", value: "#954535" },
-      ],
-      inStock: true,
-      material: "Wood",
-      dimensions: "85.60 × 53.98 mm (standard credit card size)",
-      thickness: "1.0mm",
-      weight: "4g",
-      bestSeller: false,
-      new: true,
-    },
-    "essential-plastic": {
-      id: "essential-plastic",
-      name: "Essential Plastic NFC Business Card",
-      slug: "essential-plastic",
-      price: 49,
-      originalPrice: 59,
-      rating: 4.5,
-      reviewCount: 210,
-      description:
-        "Our Essential Plastic NFC Business Card offers the perfect balance of affordability and functionality. Made from durable plastic with full-color printing options, this card allows you to share your contact information with a simple tap while showcasing your brand with vibrant colors.",
-      features: [
-        "Durable plastic construction",
-        "Full-color printing on both sides",
-        "NFC chip with 144 bytes of memory",
-        "No battery required",
-        "Water-resistant",
-        "Works with all modern smartphones",
-        "Includes digital profile management",
-        "Free shipping",
-      ],
-      images: [assets.pvc, assets.pvc, assets.pvc],
-      colors: [
-        { name: "White", value: "#FFFFFF" },
-        { name: "Black", value: "#000000" },
-        { name: "Blue", value: "#0000FF" },
-        { name: "Red", value: "#FF0000" },
-      ],
-      inStock: true,
-      material: "Plastic",
-      dimensions: "85.60 × 53.98 mm (standard credit card size)",
-      thickness: "0.76mm",
-      weight: "5g",
-      bestSeller: false,
-    },
-  };
 
   // Get the product based on the slug
 
@@ -179,11 +76,11 @@ export default function ProductPage() {
               <div>
                 <div className="flex items-center gap-2">
                   {product.bestSeller && (
-                    <Badge className="bg-yellow-500 hover:bg-yellow-600">
+                    <Badge className=" text-text bg-yellow-500 hover:bg-yellow-600">
                       Best Seller
                     </Badge>
                   )}
-                  {product.new && <Badge>New</Badge>}
+                  {product.new && <Badge className={"text-text"}>New</Badge>}
                   <Badge
                     variant="outline"
                     className="text-emerald-500 border-emerald-200 dark:border-emerald-800"
@@ -315,7 +212,7 @@ export default function ProductPage() {
               <div className="rounded-lg bg-muted p-4">
                 <div className="flex items-center gap-3">
                   <div className="rounded-full bg-primary/10 p-2">
-                    <CreditCard className="h-5 w-5 text-primary" />
+                    <CreditCard className="h-5 w-5 text-text" />
                   </div>
                   <div>
                     <h4 className="font-medium">Free Digital Profile</h4>
@@ -485,9 +382,9 @@ export default function ProductPage() {
               We offer custom designs and bulk orders for businesses. Contact us
               to discuss your specific requirements.
             </p>
-            <Button size="lg" asChild>
+            <CustomButton size="lg" asChild>
               <Link href="/contact">Contact Sales</Link>
-            </Button>
+            </CustomButton>
           </div>
         </div>
       </main>
