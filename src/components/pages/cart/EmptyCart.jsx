@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CustomButton from "@/components/CustomButton";
 
 export function EmptyCart() {
   return (
@@ -14,9 +15,9 @@ export function EmptyCart() {
           <p className="mb-8 text-muted-foreground">
             Looks like you haven't added any products to your cart yet.
           </p>
-          <Button asChild size="lg">
+          <CustomButton asChild size="lg">
             <Link href="/products">Browse Products</Link>
-          </Button>
+          </CustomButton>
         </div>
       </main>
     </div>

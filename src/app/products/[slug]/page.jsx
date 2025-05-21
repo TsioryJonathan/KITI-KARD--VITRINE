@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { CardFooter } from "@/components/ui/card";
 import { CardContent } from "@/components/ui/card";
@@ -50,9 +50,12 @@ export default function ProductPage() {
   }
 
   // Set default selected color if not set
-  if (!selectedColor && product.colors && product.colors.length > 0) {
-    setSelectedColor(product.colors[0].name);
-  }
+
+  useEffect(() => {
+    if (!selectedColor && product.colors && product.colors.length > 0) {
+      setSelectedColor(product.colors[0].name);
+    }
+  }, [selectedColor, product.colors]);
 
   // Get the other products for the "You might also like" section
   const otherProducts = Object.values(products).filter(
@@ -96,7 +99,7 @@ export default function ProductPage() {
                       Best Seller
                     </Badge>
                   )}
-                  {product.new && <Badge>New</Badge>}
+                  {product.new && <Badge className="text-text">New</Badge>}
                   <Badge
                     variant="outline"
                     className="text-emerald-500 border-emerald-200 dark:border-emerald-800"

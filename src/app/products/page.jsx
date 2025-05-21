@@ -56,7 +56,7 @@ export default function ProductsPage() {
                 href={`/products/${product.slug}`}
                 className="group"
               >
-                <Card className="h-full overflow-hidden transition-all hover:shadow-md bg-gray-50 ">
+                <Card className="h-full overflow-hidden transition-all hover:shadow-md bg-muted/30 ">
                   <div className="relative aspect-square overflow-hidden flex items-center justify-center ">
                     <NextImage
                       src={product.image || "/placeholder.svg"}
@@ -69,7 +69,11 @@ export default function ProductsPage() {
                           Best Seller
                         </Badge>
                       )}
-                      {product.new && <Badge className="text-text bg-transparent border border-green-700">New</Badge>}
+                      {product.new && (
+                        <Badge className="text-text bg-transparent border border-green-700">
+                          New
+                        </Badge>
+                      )}
                     </div>
                   </div>
                   <CardContent className="p-4">
