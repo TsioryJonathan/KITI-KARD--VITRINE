@@ -33,18 +33,25 @@ export function CartProvider({ children }) {
   // Add an item to the cart
   const addToCart = (item) => {
     setItems((prevItems) => {
-      // Check if the item already exists in the cart (with the same color if applicable)
       const existingItemIndex = prevItems.findIndex(
         (i) => i.id === item.id && i.color === item.color
       );
 
       if (existingItemIndex !== -1) {
-        // If the item exists, update its quantity
-        const updatedItems = [...prevItems];
-        updatedItems[existingItemIndex].quantity += item.quantity;
-        return updatedItems;
+        // Crée un nouveau tableau avec un nouvel objet modifié
+        return prevItems.map((i, index) => {
+          if (index === existingItemIndex) {
+            const updatedItem = {
+              ...i,
+              quantity: i.quantity + item.quantity,
+            };
+
+            return updatedItem;
+          }
+          return i;
+        });
       } else {
-        // If the item doesn't exist, add it to the cart
+        // Ajoute un nouvel objet sans modification
         return [...prevItems, item];
       }
     });

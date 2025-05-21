@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { ShoppingCart, Check } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { useToast } from "@/hooks/use-toast";
+import CustomButton from "@/components/CustomButton";
+import { Button } from "@/components/ui/button";
 
 export function AddToCartButton({
   product,
@@ -49,7 +50,7 @@ export function AddToCartButton({
   };
 
   return (
-    <Button
+    <CustomButton
       onClick={handleAddToCart}
       className={`gap-2 ${className}`}
       variant={variant}
@@ -67,6 +68,6 @@ export function AddToCartButton({
           Add to Cart
         </>
       )}
-    </Button>
+    </CustomButton>
   );
 }
