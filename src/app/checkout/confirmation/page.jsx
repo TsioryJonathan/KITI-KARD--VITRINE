@@ -3,16 +3,20 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CheckCircle2, Package } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import CustomButton from "@/components/CustomButton";
+import { useCart } from "@/context/CartContext";
 
 export default function ConfirmationPage() {
   const router = useRouter();
   const [orderNumber, setOrderNumber] = useState("");
   const [estimatedDelivery, setEstimatedDelivery] = useState("");
+  const { clearCart } = useCart();
 
   useEffect(() => {
+    // Clear Cart
+    clearCart();
+
     // Generate a random order number
     const randomOrderNumber = Math.floor(
       100000 + Math.random() * 900000
@@ -58,7 +62,7 @@ export default function ConfirmationPage() {
               <p className="font-medium">{estimatedDelivery}</p>
             </div>
             <div className="flex items-center rounded-md bg-muted p-3">
-              <Package className="mr-2 h-5 w-5 text-primary" />
+              <Package className="mr-2 h-5 w-5 text-text" />
               <span className="text-sm">
                 You'll receive shipping updates via email
               </span>
@@ -66,12 +70,17 @@ export default function ConfirmationPage() {
           </div>
 
           <div className="flex w-full flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg" className="flex-1">
+            <CustomButton asChild size="lg" className="flex-1">
               <Link href="/products">Continue Shopping</Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="flex-1">
+            </CustomButton>
+            <CustomButton
+              asChild
+              variant="outline"
+              size="lg"
+              className="flex-1"
+            >
               <Link href="/dashboard">View Order</Link>
-            </Button>
+            </CustomButton>
           </div>
         </div>
       </main>

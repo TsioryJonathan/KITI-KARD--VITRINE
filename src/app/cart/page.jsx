@@ -10,12 +10,11 @@ import { useCart } from "@/context/CartContext";
 import { CartItem } from "@/components/pages/cart/CartItem";
 import { EmptyCart } from "@/components/pages/cart/EmptyCart";
 import { CartSummary } from "@/components/pages/cart/CartSummary";
+import CustomButton from "@/components/CustomButton";
 
 export default function CartPage() {
   const { items, getCartCount } = useCart();
   const [isProcessing, setIsProcessing] = useState(false);
-
-
 
   const handleCheckout = () => {
     setIsProcessing(true);
@@ -64,7 +63,7 @@ export default function CartPage() {
               <div className="sticky top-8 rounded-lg border p-6">
                 <h2 className="mb-4 text-lg font-semibold">Order Summary</h2>
                 <CartSummary />
-                <Button
+                <CustomButton
                   onClick={handleCheckout}
                   className="mt-6 w-full gap-2"
                   size="lg"
@@ -72,7 +71,7 @@ export default function CartPage() {
                 >
                   <ShoppingCart className="h-5 w-5" />
                   {isProcessing ? "Processing..." : "Proceed to Checkout"}
-                </Button>
+                </CustomButton>
               </div>
             </div>
           </div>

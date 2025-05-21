@@ -11,9 +11,10 @@ import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/context/CartContext";
 import { CartSummary } from "@/components/pages/cart/CartSummary";
 import { useRouter } from "next/navigation";
+import CustomButton from "@/components/CustomButton";
 
 export default function CheckoutPage() {
-  const { items, getCartCount, clearCart, isInitialized } = useCart();
+  const { items, getCartCount, isInitialized } = useCart();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -30,9 +31,6 @@ export default function CheckoutPage() {
 
     // Simulate a delay for processing the order
     setTimeout(() => {
-      // Clear the cart
-      clearCart();
-
       // Redirect to the confirmation page
       router.push("/checkout/confirmation");
     }, 1500);
@@ -170,14 +168,14 @@ export default function CheckoutPage() {
                   </span>
                 </div>
 
-                <Button
+                <CustomButton
                   type="submit"
                   className="mt-6 w-full"
                   size="lg"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Processing..." : "Complete Order"}
-                </Button>
+                </CustomButton>
               </div>
             </div>
           </form>
