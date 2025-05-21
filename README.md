@@ -1,21 +1,16 @@
-<div style="width: 100% ; 
-display:flex;
-justify-content:center;
-align-item:center;
-margin-bottom:20px">
-<div style="background-color:white;
-border-radius:50%"> 
-<img src="https://iili.io/3QBgaKx.png"
-style="width:200px;
-height:200px"> </img>
-</div>
- </div>
+<p align="center">
+  <img src="https://iili.io/3QBgaKx.png" alt="KITI-KARD Logo" width="200" />
+</p>
+
+<h1 align="center">KITI-KARD</h1>
+
+<p align="center">
+  A modern e-commerce site for selling customizable NFC business cards. Built with <strong>Next.js</strong>, <strong>TailwindCSS</strong>, and <strong>ShadCN UI</strong>, this project delivers a fast, responsive, and sleek shopping experience.
+</p>
 
 
 
-# KITI-KARD
 
-A modern e-commerce site for selling customizable NFC business cards. Built with **Next.js**, **TailwindCSS**, and **ShadCN UI**, this project delivers a fast, responsive, and sleek shopping experience.
 
 ## 🚀 Tech Stack
 
