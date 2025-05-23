@@ -62,16 +62,6 @@ export default function ProductPage() {
     (p) => p.id !== product.id
   );
 
-  const decreaseQuantity = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const increaseQuantity = () => {
-    setQuantity(quantity + 1);
-  };
-
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
@@ -188,7 +178,7 @@ export default function ProductPage() {
                     variant="outline"
                     size="icon"
                     className="rounded-r-none"
-                    onClick={decreaseQuantity}
+                    onClick={() => setQuantity(quantity - 1)}
                     disabled={quantity <= 1}
                   >
                     <Minus className="h-4 w-4" />
@@ -200,7 +190,7 @@ export default function ProductPage() {
                     variant="outline"
                     size="icon"
                     className="rounded-l-none"
-                    onClick={increaseQuantity}
+                    onClick={() => setQuantity(quantity + 1)}
                   >
                     <Plus className="h-4 w-4" />
                   </Button>

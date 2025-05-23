@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
         />
         <link rel="icon" href="/images/favicon.png" sizes="256x256" />
         <link rel="icon" href="/images/favicon.png" sizes="192x192" />
-        <link rel="apple-touch-icon" href="/images/favicon-circle.png" sizes="180x180" />
+        <link rel="apple-touch-icon" href="/images/favicon.png" sizes="180x180" />
         <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#ffffff" />
       </head>
