@@ -1,12 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import assets from "../../../public/images/assets";
 import { footerLinks } from "@/constants/footerLinks";
 import { socialLinks } from "@/constants/socialMediaLinks";
 
 export default function Footer() {
+  const { theme } = useTheme();
   return (
     <footer className="w-full border-t bg-muted/40 dark:bg-muted/30">
       <div className="px-4 md:px-6 py-12">
@@ -14,7 +18,7 @@ export default function Footer() {
           <div className="flex flex-col gap-2">
             <Link href="/" className="flex items-center gap-2">
               <Image
-                src={assets.logo}
+                src={theme === "dark" ? assets.logoDark : assets.logoLight} 
                 alt="KITI'KARD Logo"
                 className="w-10 h-full"
               ></Image>
