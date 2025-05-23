@@ -1,4 +1,5 @@
-import logo from "./logo.png";
+import logoLight from "./logo.png";
+import logoDark from "./logo-light.png";
 import team from "./team.jpg";
 import pvc from "./PVC.jpg";
 import bois from "./BOIS.jpg";
@@ -15,7 +16,8 @@ import step3 from "./step3.jpg";
 import step4 from "./step4.jpg";
 
 const assets = {
-  logo,
+  logoLight,
+  logoDark,
   team,
   pvc,
   bois,
