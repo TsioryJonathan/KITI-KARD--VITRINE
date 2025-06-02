@@ -5,6 +5,7 @@ import links from "@/constants/sidebarLinks";
 import Image from "next/image";
 import { ShoppingCart, User, Menu } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -27,14 +28,19 @@ import clsx from "clsx";
 import { CartIcon } from "./CartIcon";
 
 export default function Navbar() {
-  const { theme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  const currentTheme = mounted ? (resolvedTheme || theme) : "dark";
   return (
     <header className="sticky top-0 z-50 w-full border-b  backdrop-blur bg-navbar supports-[backdrop-filter]:bg-background/60 px-10">
       <div className="flex h-16 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-xl">
           <Image
-            src={theme === "dark" ? assets.logoDark : assets.logoLight}
+            src={currentTheme === "dark" ? assets.logoDark : assets.logoLight}
             alt="KITI'KARD LOGO"
             className="w-16 h-full"
           ></Image>
@@ -92,7 +98,7 @@ export default function Navbar() {
               <SheetHeader>
                 <SheetTitle className="flex items-center gap-2">
                   <Image
-                    src={theme === "dark" ? assets.logoDark : assets.logoLight}
+                    src={currentTheme === "dark" ? assets.logoDark : assets.logoLight}
                     alt="KITI'KARD"
                     className={clsx("w-10 h-full")}
                   ></Image>
